@@ -1,5 +1,6 @@
 # Cryostat DB
 
+[![CI build and push](https://github.com/cryostatio/cryostat-db/actions/workflows/ci.yml/badge.svg)](https://github.com/cryostatio/cryostat-db/actions/workflows/ci.yml)
 [![Image Repository on Quay](https://quay.io/repository/cryostat/cryostat-db/status "Image Repository on Quay")](https://quay.io/repository/cryostat/cryostat-db)
 [![Google Group : Cryostat Development](https://img.shields.io/badge/Google%20Group-Cryostat%20Development-blue.svg)](https://groups.google.com/g/cryostat-development)
 
