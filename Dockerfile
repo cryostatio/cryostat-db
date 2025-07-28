@@ -1,4 +1,4 @@
-FROM quay.io/sclorg/postgresql-16-c9s:20250716
+FROM quay.io/sclorg/postgresql-16-c9s:20250723
 
 ENTRYPOINT ["/usr/local/bin/cryostat-db-entrypoint.bash"]
 
