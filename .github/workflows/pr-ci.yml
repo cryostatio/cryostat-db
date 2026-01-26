@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v6
     - name: Build container images and manifest
       id: buildah-build
       uses: redhat-actions/buildah-build@v2
