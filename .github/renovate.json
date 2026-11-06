@@ -11,6 +11,7 @@
     ":separateMultipleMinorReleases",
     ":separatePatchReleases"
   ],
+  "baseBranchPatterns": ["main", "/^cryostat-v.*/"],
   "reviewersFromCodeOwners": true,
   "labels": [
     "dependencies",
@@ -24,49 +25,20 @@
   "stopUpdatingLabel": "blocked",
   "packageRules": [
     {
-      "description": "Require approval for Quarkus minor version updates",
-      "matchManagers": [
-        "maven"
-      ],
-      "matchUpdateTypes": [
-        "major",
-        "minor"
-      ],
-      "dependencyDashboardApproval": true,
-      "matchPackageNames": [
-        "/^io\\.quarkus:/",
-        "/^io\\.quarkus\\.platform:/"
-      ]
+      "description": "Dockerfile base image updates are never gated by the dependency dashboard, on any branch",
+      "matchManagers": ["dockerfile"],
+      "dependencyDashboardApproval": false
     },
     {
-      "description": "Require approval for projectnessie updates",
-      "matchManagers": [
-        "maven"
-      ],
-      "dependencyDashboardApproval": true,
-      "matchPackageNames": [
-        "/^org\\.projectnessie\\.cel:/"
-      ]
+      "description": "Disable all dependency updates on release branches except Dockerfile base images; other updates there are handled via Mergify backport",
+      "matchBaseBranches": ["/^cryostat-v.*/"],
+      "enabled": false
     },
     {
-      "description": "Require approval for protobuf updates",
-      "matchManagers": [
-        "maven"
-      ],
-      "dependencyDashboardApproval": true,
-      "matchPackageNames": [
-        "/^com\\.google\\.protobuf:/"
-      ]
-    },
-    {
-      "description": "Require approval for hibernate-jfr updates",
-      "matchManagers": [
-        "maven"
-      ],
-      "dependencyDashboardApproval": true,
-      "matchPackageNames": [
-        "/^org\\.hibernate\\.orm:hibernate-jfr/"
-      ]
+      "description": "Allow Dockerfile base image updates on release branches",
+      "matchBaseBranches": ["/^cryostat-v.*/"],
+      "matchManagers": ["dockerfile"],
+      "enabled": true
     }
   ]
 }
